@@ -1,0 +1,36 @@
+body{
+    background-image: url('../assets/RE.jpg');
+    background-size: cover;
+}
+.key-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+ width: 600px;
+ height: 80px;
+ margin: auto;
+ /* border:2px solid black; */
+ margin-top: 20%;
+}
+
+.key{
+    width: 70px;
+height: 40px;
+border: 2px solid white;
+color:salmon;
+font-weight: 800;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+border-radius: 3px;
+transition: all 0.09s;
+}
+
+.active{
+    transform: scale(1.1);
+    border: 2px solid yellow;
+    box-shadow: 2px 2px 2px 2px lightyellow;
+}
