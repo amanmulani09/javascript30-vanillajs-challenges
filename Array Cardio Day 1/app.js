@@ -120,3 +120,75 @@ console.log('****** map ',fullNames)
 let sortedByBirth = inventors.sort((first,second)=> first.year > second.year ? 1 : -1);
 console.log('******** sort',sortedByBirth)
 
+ 
+//Array.prototype.reduce();
+// how many years did all inventors live ?
+
+const totalYears = inventors.reduce((total,inventor)=>{
+    return total + (inventor.passed - inventor.year)
+},0)
+
+console.log(totalYears)
+
+
+const oldest = inventors.sort((a,b)=>{
+    const lastGuy = a.passed - a.year;
+    const nextGuy = b.passed - b.year;
+
+    return lastGuy > nextGuy ? -1: 1;
+})
+
+console.table(oldest)
+
+
+
+// we can add querySelectorAll in any DOM element not only on the document
+
+//ex
+
+const category = document.querySelector('body');
+const links = category.querySelectorAll('a');
+
+//it gives us the nodeList and we can convert the node list into array as follows
+
+const de = [...category.querySelectorAll('a')];
+
+//or
+
+const link = Array.from(document.querySelectorAll('a'));
+
+const streetWithDe = link.map(item=> link.textContent)
+                    .filter(item=> item.includes('de'));
+
+
+//sort exercise
+
+
+//sort the people alphabetically by last name 
+
+const alpha = people.sort((lastone,nextOne)=>{
+const [aLast,aFirst] = lastone.split(', ');
+const [bLast,bFirst] = nextOne.split(', ');
+
+return aLast > bLast ? 1 : -1; 
+})
+
+console.table(alpha)
+
+
+//8 Reduce Exercise 
+
+//sum up the instances of each of these 
+
+const data = ['car','bullet','van','truck','van','car','van','truck','bike','car','van','truck',];
+
+
+const transportation = data.reduce((obj,item)=>{
+    if(!obj[item]){
+        obj[item] = 0;
+    }
+obj[item]++;
+return obj;  
+},{})
+
+console.log(transportation)
